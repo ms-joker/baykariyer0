@@ -6,7 +6,8 @@ import java.sql.Driver;
 
 public class anaSayfa {
     public anaSayfa() {
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(Driver.getDriver(),
+                this);
     }
 
 }
