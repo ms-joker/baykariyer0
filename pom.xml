@@ -86,10 +86,11 @@
             <version>7.15.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.15.0</version>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.16.1</version>
             <scope>test</scope>
         </dependency>
 
