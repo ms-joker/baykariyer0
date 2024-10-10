@@ -16,7 +16,7 @@ public class OpenPositionsPage {
     public WebElement searchInput;
 
     //Staj checkbox buluyor
-    @FindBy(xpath="(//input[@class='form-check-input2'])[1]")
+    @FindBy(xpath = "(//input[@class='form-check-input2'])[1]")
     public WebElement stajCheckBox;
 
     //iş check box buluyor

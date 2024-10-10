@@ -13,12 +13,13 @@ public class KariyerPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath="//a[contains(@class, 'nav-link')]")
+    //NavBar'daki elementleri buluyor
+    @FindBy(xpath = "//a[contains(@class, 'nav-link')]")
     public List<WebElement> kariyerNavbar;
 
-    @FindBy(xpath="")
-    public WebElement languageBtn;
 
+    @FindBy(xpath = "//li[@class='nav-item  top-btn ']/a")
+    public WebElement languageBtn;
 
 
 }
