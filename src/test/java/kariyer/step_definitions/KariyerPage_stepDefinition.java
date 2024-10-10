@@ -1,4 +1,4 @@
-package kariyer.step_definition;
+package kariyer.step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import kariyer.pages.KariyerPage;
 import kariyer.utilities.ConfigurationReader;
 import kariyer.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -26,8 +27,10 @@ public class KariyerPage_stepDefinition {
     public void user_click_navbar_element() throws InterruptedException {
         List<WebElement> NavBarElements = kariyerPage.kariyerNavbar;
         for (WebElement element : NavBarElements) {
+            String link = element.getAttribute("href");
             element.click();
             Thread.sleep(2000);
+            Assert.assertEquals(link, Driver.getDriver().getCurrentUrl());
 
         }
     }
@@ -39,14 +42,16 @@ public class KariyerPage_stepDefinition {
     @When("user click language button")
     public void user_click_language_button() throws InterruptedException {
         kariyerPage.languageBtn.click();
-        Thread.sleep(1000);
+        Thread.sleep(1500);
 
 
     }
     @Then("page change to next language")
     public void page_change_to_next_language() {
         if (kariyerPage.languageBtn.getText() == "EN"){
-            kariyerPage.languageBtn.click();
+            Assert.assertTrue(Driver.getDriver().getCurrentUrl().endsWith("tr/"));
+        } else if (kariyerPage.languageBtn.getText() == "TR") {
+            Assert.assertTrue(Driver.getDriver().getCurrentUrl().endsWith("en/"));
         }
     }
 

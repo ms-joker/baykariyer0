@@ -1,4 +1,4 @@
-package kariyer.step_definition;
+package kariyer.step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
