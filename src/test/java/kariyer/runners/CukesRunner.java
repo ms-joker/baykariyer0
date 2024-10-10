@@ -11,11 +11,10 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber/report.html",
                 "junit:target/junit/junit-repeat.xml",
                 "rerun:target/rerun.txt",
-                "me.jvt.cucumber.repor.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
         glue = "java/kariyer/step_definition",
-        dryRun=true,
+        dryRun=false,
         tags = "",
         publish = true
 )

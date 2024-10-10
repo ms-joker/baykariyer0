@@ -16,6 +16,9 @@ public class KariyerPage {
     @FindBy(xpath="//a[contains(@class, 'nav-link')]")
     public List<WebElement> kariyerNavbar;
 
+    @FindBy(xpath="")
+    public WebElement languageBtn;
+
 
 
 }
