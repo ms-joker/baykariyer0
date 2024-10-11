@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OpenPositionPage_stepDefinition {
+public class OpenPositionPage_StepDefinition {
 
     OpenPositionsPage openPositionsPage = new OpenPositionsPage();
     List<WebElement> positionsList = new ArrayList<>();
@@ -28,12 +28,12 @@ public class OpenPositionPage_stepDefinition {
     }
 
     @When("user checks staj checkbox")
-    public void user_checks_staj_checkbox() {
+    public void user_checks_staj_checkbox() {   // "staj" checkbox tıklıyor.
         openPositionsPage.stajCheckBox.click();
     }
 
     @When("user checks job checkbox")
-    public void user_checks_job_checkbox() {
+    public void user_checks_job_checkbox() {    // "iş" checkbox tıklıyor
         openPositionsPage.isCheckBox.click();
     }
 

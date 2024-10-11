@@ -6,20 +6,20 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
-    //1- Create the object of Properties
+    // Properties obje oluşturur.
     private static final Properties properties = new Properties();
 
     static{
 
         try {
 
-            //2- We need to open the file in java memory: FileInputStream
+            // java hafizasındaki: FileInputStream dosyasını açmamız gerek.
             FileInputStream file = new FileInputStream("configuration.properties");
 
-            //3- Load the properties object using FileInputStream object
+            // FileInputStream objesiyle properties yüklenmeli
             properties.load(file);
 
-            //close the file
+            // sonra dosya kapatılır.
             file.close();
 
 
