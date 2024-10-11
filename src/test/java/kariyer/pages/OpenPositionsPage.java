@@ -22,4 +22,10 @@ public class OpenPositionsPage {
     //iş check box buluyor
     @FindBy(xpath = "(//input[@class='form-check-input2'])[2]")
     public WebElement isCheckBox;
+
+    @FindBy(xpath = "//img[@id='downArrowLast']")
+    public WebElement downArrowLast;
+
+    @FindBy(xpath = "(//a[@class='page-link'])[4]")
+    public WebElement pageLink;
 }

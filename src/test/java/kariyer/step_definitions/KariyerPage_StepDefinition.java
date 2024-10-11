@@ -15,8 +15,6 @@ public class KariyerPage_StepDefinition {
 
     KariyerPage kariyerPage = new KariyerPage();
 
-
-
     @Given("user on main page")
     public void user_on_main_page() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("b_url"));
@@ -30,7 +28,7 @@ public class KariyerPage_StepDefinition {
             String link = NavBarElements.get(i).getAttribute("href");
             NavBarElements.get(i).click();
             Thread.sleep(1500);
-            Assert.assertEquals(link+"/", Driver.getDriver().getCurrentUrl());
+            Assert.assertEquals(removeBackSlash(link), removeBackSlash(Driver.getDriver().getCurrentUrl()));
         }
     }
     @Then("page will go to element page")
@@ -50,6 +48,13 @@ public class KariyerPage_StepDefinition {
         } else if (kariyerPage.languageBtn.getText().equals("TR")) {
             Assert.assertTrue(Driver.getDriver().getCurrentUrl().endsWith("en/"));
         }
+    }
+
+    private static String removeBackSlash(String str) {
+        if (str != null && str.endsWith("/")){
+            return str.substring(0, str.length()-1);
+        }
+        return str;
     }
 
 }
