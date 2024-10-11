@@ -7,9 +7,6 @@ import kariyer.pages.KariyerPage;
 import kariyer.utilities.ConfigurationReader;
 import kariyer.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class KariyerPage_StepDefinition {
 
@@ -21,26 +18,23 @@ public class KariyerPage_StepDefinition {
         Thread.sleep(2000);
     }
 
-    @When("user click navbar element")
-    public void user_click_navbar_element() throws InterruptedException {
-        List<WebElement> NavBarElements = kariyerPage.kariyerNavbar;        //NavBar'daki tüm elementleri buluyor
-        for (int i=1; i<NavBarElements.size();i++) {//ilk NavBar elementi dropdown menü olduğu için 2.sinden başlamalı.
-            String link = NavBarElements.get(i).getAttribute("href");
-            NavBarElements.get(i).click();
-            Thread.sleep(1500);
-            Assert.assertEquals(removeBackSlash(link), removeBackSlash(Driver.getDriver().getCurrentUrl()));
-        }
+    @When("user click {string} element")
+    public void user_click_element(String navbar_element) throws InterruptedException {
+        kariyerPage.getElement(navbar_element).click();
+        Thread.sleep(500);
     }
-    @Then("page will go to element page")
-    public void page_will_go_to_element_page() {
 
+    @Then("page contains {string}")
+    public void page_contains(String info) {
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(info));
     }
+
     @When("user click language button")
     public void user_click_language_button() throws InterruptedException {
         kariyerPage.languageBtn.click();
         Thread.sleep(1500);
-
     }
+
     @Then("page change to next language")
     public void page_change_to_next_language() {
         if (kariyerPage.languageBtn.getText().equals("EN")){
@@ -48,13 +42,6 @@ public class KariyerPage_StepDefinition {
         } else if (kariyerPage.languageBtn.getText().equals("TR")) {
             Assert.assertTrue(Driver.getDriver().getCurrentUrl().endsWith("en/"));
         }
-    }
-
-    private static String removeBackSlash(String str) {
-        if (str != null && str.endsWith("/")){
-            return str.substring(0, str.length()-1);
-        }
-        return str;
     }
 
 }

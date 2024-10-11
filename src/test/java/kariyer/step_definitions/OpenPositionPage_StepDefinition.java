@@ -17,7 +17,13 @@ import java.util.List;
 public class OpenPositionPage_StepDefinition {
 
     OpenPositionsPage openPositionsPage = new OpenPositionsPage();
-    List<WebElement> positionsList = new ArrayList<>();
+
+    String pageNum;
+    {
+        try{
+            pageNum = openPositionsPage.pageLink.getText();
+        }catch(Exception _){        }
+    }
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
     @Given("user on open-position page")
@@ -33,22 +39,20 @@ public class OpenPositionPage_StepDefinition {
 
     @When("user checks staj checkbox")
     public void user_checks_staj_checkbox() throws InterruptedException {   // "staj" checkbox tıklıyor.
-        js.executeScript("arguments[0].scrollIntoView(true);", openPositionsPage.stajCheckBox);
-        Thread.sleep(500);
-        openPositionsPage.stajCheckBox.click();
+        js.executeScript("arguments[0].click();", openPositionsPage.stajCheckBox);
     }
 
     @When("user checks job checkbox")
     public void user_checks_job_checkbox() throws InterruptedException {    // "iş" checkbox tıklıyor
-        js.executeScript("arguments[0].scrollIntoView(true);", openPositionsPage.isCheckBox);
-        Thread.sleep(500);
-        openPositionsPage.isCheckBox.click();
+        js.executeScript("arguments[0].click()", openPositionsPage.isCheckBox);
     }
 
     @Then("listed jobs will change accordingly")
     public void listed_jobs_will_change_accordingly() throws InterruptedException {
         Thread.sleep(1500);
-        //Assert.assertNotEquals(openPositionsPage.pageLink.getText(), "28");
+        if(openPositionsPage.pageLink.isDisplayed()) {
+            Assert.assertNotEquals(openPositionsPage.pageLink.getText(), pageNum);
+        }
 
     }
 
