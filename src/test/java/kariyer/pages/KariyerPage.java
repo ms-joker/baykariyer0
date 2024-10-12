@@ -14,7 +14,7 @@ public class KariyerPage {
 
     //NavBar elementleri için element yazılarından bulma fonkisyonu tanımlar
     public WebElement getElement(String linkText){
-        return Driver.getDriver().findElement(By.linkText(linkText));
+        return Driver.getDriver().findElement(By.partialLinkText(linkText));
     }
 
     //Dil değiştirme butonu için WebElement oluşturur.
