@@ -9,21 +9,17 @@ import kariyer.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class OpenPositionPage_StepDefinition {
 
     OpenPositionsPage openPositionsPage = new OpenPositionsPage();
-
     String pageNum;
     {
         try{
             pageNum = openPositionsPage.pageLink.getText();
         }catch(Exception _){        }
     }
+    //CheckBox tıklama işlemi için jsExecutor objesi oluşturur
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
     @Given("user on open-position page")

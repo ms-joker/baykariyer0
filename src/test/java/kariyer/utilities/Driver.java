@@ -15,8 +15,8 @@ public class Driver {
         if (driver == null){
             String browserType = ConfigurationReader.getProperty("browser");
             /*
-                configuration.properties dosyasından internet tarayıcı tipini okuyor,
-                switch yöntemiyle talep edilen tarayıcıyı açıyor.
+                configuration.properties dosyasından tarayıcı tipini okuyor,
+                switch yöntemiyle uygun tarayıcıyı açıyor.
             */
             switch (browserType){
                 case "chrome":
@@ -34,7 +34,7 @@ public class Driver {
     }
 
 
-    /*   quit() metoduyla işlem bittiğinde tarayıcıyı kapatıyor.
+    /*   quit() metoduyla tarayıcıyı kapatıyor.
      */
     public static void closeDriver(){
         if (driver != null){

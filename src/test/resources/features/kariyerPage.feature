@@ -14,6 +14,7 @@ Feature: mainPage feature
       | BAYKAR           | https://baykartech.com/tr/ |
       | GİRİŞ            | login                      |
 
+
   Scenario: User can change language
     When user click language button
     Then page change to next language

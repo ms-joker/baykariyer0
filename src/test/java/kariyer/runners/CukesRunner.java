@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "kariyer/step_definitions",
         dryRun=false,
-        tags = ""
+        tags = ""   //farklı testler için kullanılır, şu anlık boş.
 )
 public class CukesRunner {
 }

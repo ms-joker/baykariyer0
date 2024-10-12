@@ -11,7 +11,7 @@ public class OpenPositionsPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //açık pozisyonlar sayfasındaki arama giriş kutusunu buluyor.
+    //açık pozisyonlar sayfasındaki filtre arama giriş kutusunu buluyor.
     @FindBy(xpath = "//input[@id='searchInput']")
     public WebElement searchInput;
 
@@ -23,6 +23,7 @@ public class OpenPositionsPage {
     @FindBy(xpath = "(//input[@class='form-check-input2'])[2]")
     public WebElement isCheckBox;
 
+    //listelenen pozisyonlar sayfa sayısını buluyor
     @FindBy(xpath = "(//a[@class='page-link'])[4]")
     public WebElement pageLink;
 }

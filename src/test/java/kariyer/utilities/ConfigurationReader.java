@@ -13,10 +13,10 @@ public class ConfigurationReader {
 
         try {
 
-            // java hafizasındaki: FileInputStream dosyasını açmamız gerek.
+            // java hafizasındaki: FileInputStream dosyasını açacak.
             FileInputStream file = new FileInputStream("configuration.properties");
 
-            // FileInputStream objesiyle properties yüklenmeli
+            // FileInputStream objesiyle properties yükleniyor
             properties.load(file);
 
             // sonra dosya kapatılır.

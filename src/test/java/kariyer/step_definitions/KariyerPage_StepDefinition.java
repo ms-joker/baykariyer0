@@ -12,7 +12,7 @@ public class KariyerPage_StepDefinition {
 
     KariyerPage kariyerPage = new KariyerPage();
 
-    @Given("user on main page")
+    @Given("user on main page") //ana sayfa
     public void user_on_main_page() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("b_url"));
         Thread.sleep(2000);
